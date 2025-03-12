@@ -29,7 +29,8 @@ func main() {
 	cfg := &tls.Config{
 		Certificates: []tls.Certificate{cert}}*/
 	server := syslog.NewServer()
-	server.SetFormat(syslog.RFC5424)
+	//server.SetFormat(syslog.RFC5424)
+	server.SetFormat(noFormat)
 	server.SetHandler(handler)
 	err := server.ListenTCP("0.0.0.0:" + os.Getenv("PORT"))
 	if err != nil {
